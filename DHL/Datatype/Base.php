@@ -34,6 +34,14 @@ abstract class Base
      * @var array
      */
     protected $_params = array();
+    /**
+     * Properties DHL reserved characters and what to replace them with when generating xml documents
+     * @var array
+     */
+    protected $_reserved = array(
+								'find' => array(	'"', 		"'",		"&",		"<",	">"),
+								'replace' => array(	'&quot;', 	"&apos;",	"&amp;",	"&lt;",	"&gt;")
+								);
 
     /**
      * Property values bag
@@ -123,7 +131,7 @@ abstract class Base
                     {
                         foreach ($this->$name as $subelement)
                         {
-                            $xmlWriter->writeElement($name, $subelement);
+                            $xmlWriter->writeElement($name, preg_replace($this->_reserved['find'], $this->_reserved['replace'], $subelement));
                         }
                     }
                     else
