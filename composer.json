@@ -10,7 +10,8 @@
     "license": "LGPL-2.1",
 
 	"autoload": {
-        "classmap" : [ "DHL" ]
+        "classmap" : [ "DHL" ],
+        "files": ["init.php"]
 	},
 
 	"authors": [
