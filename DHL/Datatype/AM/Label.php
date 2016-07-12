@@ -56,6 +56,15 @@ class Label extends Base
             'length' => '1',
             'enumeration' => 'Y,N',
         ), 
+        'HideAccount' => array(
+            'type' => 'YesNo',
+            'required' => false,
+            'subobject' => false,
+            'comment' => 'Boolean flag',
+            'length' => '1',
+            'comment' => 'hide DHL account on generated labels',
+            'enumeration' => 'Y,N',
+        ), 
         'CustomerLogo' => array(
             'type' => 'CustomerLogo',
             'required' => false,
